@@ -19,8 +19,8 @@ const Header = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full px-4 py-4">
-      <nav className="bg-black/80 backdrop-blur-md border border-white/10 rounded-xl px-6 py-4 shadow-lg mx-auto max-w-7xl">
+    <header className="fixed top-0 z-50 w-full px-4 py-4">
+      <nav className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl px-6 py-4 mx-auto max-w-7xl">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex-shrink-0">
@@ -87,8 +87,8 @@ const Header = () => {
 
         {/* Mobile Navigation Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden mt-4 pt-4 border-t border-white/10">
-            <div className="flex flex-col space-y-3">
+          <div className="lg:hidden mt-4 pt-4 border-t border-white/20">
+            <div className="flex flex-col space-y-3 bg-black/40 backdrop-blur-md rounded-lg p-4 border border-white/10">
               {/* Mobile Nav Links */}
               {navLinks.map((link, index) => (
                 <a
