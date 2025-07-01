@@ -179,13 +179,13 @@ function StarRating({ rating }) {
       {[...Array(fullStars)].map((_, index) => (
         <Star
           key={`full-${index}`}
-          className="w-4 h-4 fill-[#FF4533] text-[#FF4533]"
+          className="w-4 h-4 fill-yellow-400 text-yellow-400"
         />
       ))}
 
       {/* Half star */}
       {hasHalfStar && (
-        <StarHalf className="w-4 h-4 fill-[#FF4533] text-[#FF4533]" />
+        <StarHalf className="w-4 h-4 fill-yellow-400 text-yellow-400" />
       )}
 
       {/* Empty stars */}
@@ -201,7 +201,7 @@ function StarRating({ rating }) {
 // Individual review card component
 function ReviewCard({ review, index }) {
   return (
-    <div className={`bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 text-white rounded-xl p-6 shadow-lg hover:scale-105 transition-all duration-300 hover:shadow-xl hover:shadow-[#FF4533]/20 border border-neutral-700 hover:border-[#FF4533]/30 relative overflow-hidden ${index % 2 === 0 ? 'animate-fade-in-up' : 'animate-fade-in-down'}`}>
+    <div className={`bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 text-white rounded-xl p-6 shadow-lg hover:scale-105 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/20 border border-neutral-700 hover:border-blue-500/30 relative overflow-hidden ${index % 2 === 0 ? 'animate-fade-in-up' : 'animate-fade-in-down'}`}>
       {/* Subtle background pattern */}
       <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/[0.02] to-transparent pointer-events-none"></div>
       
@@ -210,7 +210,7 @@ function ReviewCard({ review, index }) {
         {/* Header with username and country */}
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-[#FF4533] to-[#E63E2E] rounded-full flex items-center justify-center text-white font-bold text-sm">
+            <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center text-white font-bold text-sm">
               {review.username.charAt(0).toUpperCase()}
             </div>
             <div>
@@ -243,9 +243,9 @@ function ReviewCard({ review, index }) {
         {/* Review text */}
         <div className="text-gray-300 leading-relaxed">
           <p className="italic text-sm relative">
-            <span className="text-[#FF4533] text-lg absolute -left-1 -top-1">"</span>
+            <span className="text-gray-400 text-lg absolute -left-1 -top-1">"</span>
             <span className="ml-2">{review.review}</span>
-            <span className="text-[#FF4533] text-lg">"</span>
+            <span className="text-gray-400 text-lg">"</span>
           </p>
         </div>
       </div>
@@ -279,7 +279,7 @@ export default function FiverrReviewsSection() {
           {/* Overall stats */}
           <div className="flex items-center justify-center gap-6 mb-8">
             <div className="text-center">
-              <div className="text-3xl font-bold text-[#FF4533] mb-1">
+              <div className="text-3xl font-bold text-yellow-400 mb-1">
                 {averageRating}
               </div>
               <div className="flex items-center justify-center mb-1">
@@ -291,7 +291,7 @@ export default function FiverrReviewsSection() {
             <div className="w-px h-16 bg-gray-700"></div>
 
             <div className="text-center">
-              <div className="text-3xl font-bold text-[#FF4533] mb-1">
+              <div className="text-3xl font-bold text-blue-400 mb-1">
                 {fiverrReviews.length}
               </div>
               <div className="text-sm text-gray-500">Happy Clients</div>
@@ -313,7 +313,7 @@ export default function FiverrReviewsSection() {
             href="https://www.fiverr.com/maleeshahe?public_mode=true"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-[#FF4533] hover:bg-[#E63E2E] text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-[#FF4533]/25"
+            className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-green-600/25"
           >
             Hire Me on Fiverr
           </a>
