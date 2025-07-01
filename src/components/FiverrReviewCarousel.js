@@ -202,54 +202,58 @@ function StarRating({ rating }) {
 // Individual review card component for carousel
 function CarouselReviewCard({ review }) {
   return (
-    <div className="bg-gradient-to-br from-neutral-900 to-neutral-800 text-white rounded-xl p-5 shadow-lg min-w-[320px] max-w-[320px] mx-3 border border-neutral-700 hover:border-[#FF4533]/40 transition-all duration-300 flex-shrink-0 hover:transform hover:scale-105 hover:shadow-xl hover:shadow-[#FF4533]/10">
+    <div className="bg-gradient-to-br from-neutral-900 to-neutral-800 text-white rounded-xl p-4 sm:p-5 shadow-lg min-w-[280px] sm:min-w-[320px] max-w-[280px] sm:max-w-[320px] mx-2 sm:mx-3 border border-neutral-700 hover:border-[#FF4533]/40 transition-all duration-300 flex-shrink-0 hover:transform hover:scale-105 hover:shadow-xl hover:shadow-[#FF4533]/10">
       {/* Header with username and country */}
-      <div className="flex items-center gap-3 mb-4">
-        <div className="w-10 h-10 bg-gradient-to-br from-[#FF4533] to-[#E63E2E] rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg">
+      <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+        <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-[#FF4533] to-[#E63E2E] rounded-full flex items-center justify-center text-white font-bold text-xs sm:text-sm shadow-lg flex-shrink-0">
           {review.username.charAt(0).toUpperCase()}
         </div>
-        <div className="flex-1">
-          <h4 className="font-semibold text-white text-sm mb-1">
+        <div className="flex-1 min-w-0">
+          <h4 className="font-semibold text-white text-xs sm:text-sm mb-1 truncate">
             {review.username}
           </h4>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1 sm:gap-2">
             {countryFlags[review.country] ? (
               <img
                 src={`https://flagcdn.com/16x12/${
                   countryFlags[review.country]
                 }.png`}
                 alt={`${review.country} flag`}
-                className="w-4 h-3 object-cover rounded-sm border border-gray-500 shadow-sm"
+                className="w-3 h-2 sm:w-4 sm:h-3 object-cover rounded-sm border border-gray-500 shadow-sm flex-shrink-0"
               />
             ) : (
-              <span className="text-sm">🌍</span>
+              <span className="text-xs sm:text-sm">🌍</span>
             )}
-            <span className="text-xs text-gray-400">{review.country}</span>
+            <span className="text-xs text-gray-400 truncate">
+              {review.country}
+            </span>
           </div>
         </div>
       </div>
 
       {/* Star rating */}
-      <div className="mb-4">
+      <div className="mb-3 sm:mb-4">
         <StarRating rating={review.rating} />
       </div>
 
       {/* Review text */}
       <div className="text-gray-300 leading-relaxed">
-        <p className="text-sm italic relative line-clamp-4">
-          <span className="text-[#FF4533] text-lg absolute -left-2 -top-1 font-serif">
+        <p className="text-xs sm:text-sm italic relative line-clamp-4">
+          <span className="text-[#FF4533] text-base sm:text-lg absolute -left-1 sm:-left-2 -top-0.5 sm:-top-1 font-serif">
             "
           </span>
-          <span className="ml-3">{review.review}</span>
-          <span className="text-[#FF4533] text-lg font-serif">"</span>
+          <span className="ml-2 sm:ml-3">{review.review}</span>
+          <span className="text-[#FF4533] text-base sm:text-lg font-serif">
+            "
+          </span>
         </p>
       </div>
 
       {/* Bottom accent */}
-      <div className="mt-4 pt-3 border-t border-neutral-700">
+      <div className="mt-3 sm:mt-4 pt-2 sm:pt-3 border-t border-neutral-700">
         <div className="flex items-center justify-between">
           <span className="text-xs text-gray-500">Verified Fiverr Review</span>
-          <div className="w-2 h-2 bg-[#FF4533] rounded-full animate-pulse"></div>
+          <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#FF4533] rounded-full animate-pulse"></div>
         </div>
       </div>
     </div>
@@ -265,8 +269,9 @@ export default function FiverrReviewCarousel() {
   const handleScrollLeft = () => {
     if (scrollContainerRef.current) {
       setIsManualScrolling(true);
+      const scrollAmount = window.innerWidth < 640 ? 300 : 340; // Smaller scroll for mobile
       scrollContainerRef.current.scrollBy({
-        left: -340, // Card width + margin
+        left: -scrollAmount,
         behavior: "smooth",
       });
       // Reset auto-scroll after 3 seconds
@@ -277,8 +282,9 @@ export default function FiverrReviewCarousel() {
   const handleScrollRight = () => {
     if (scrollContainerRef.current) {
       setIsManualScrolling(true);
+      const scrollAmount = window.innerWidth < 640 ? 300 : 340; // Smaller scroll for mobile
       scrollContainerRef.current.scrollBy({
-        left: 340, // Card width + margin
+        left: scrollAmount,
         behavior: "smooth",
       });
       // Reset auto-scroll after 3 seconds
@@ -287,18 +293,22 @@ export default function FiverrReviewCarousel() {
   };
 
   return (
-    <section className="py-16 px-6 bg-[#050505] relative overflow-hidden">
+    <section
+      id="reviews"
+      className="py-12 sm:py-16 px-4 sm:px-6 bg-[#050505] relative overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-2 mb-4 text-sm text-gray-400 bg-[#1a1a1a] border border-[#2a2a2a] rounded-full">
-            <Users className="w-4 h-4" />
-            Client Testimonials
+        <div className="text-center mb-8 sm:mb-12">
+          <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 mb-3 sm:mb-4 text-xs sm:text-sm text-gray-400 bg-[#1a1a1a] border border-[#2a2a2a] rounded-full">
+            <Users className="w-3 h-3 sm:w-4 sm:h-4" />
+            <span className="hidden sm:inline">Client Testimonials</span>
+            <span className="sm:hidden">Reviews</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-light text-white mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-light text-white mb-3 sm:mb-4 px-4">
             What Fiverr Clients Say
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-gray-400 max-w-2xl mx-auto leading-relaxed text-sm sm:text-base px-4">
             Real feedback from satisfied clients who've experienced my freelance
             services.
           </p>
@@ -307,28 +317,28 @@ export default function FiverrReviewCarousel() {
         {/* Carousel Container */}
         <div className="relative group">
           {/* Left gradient mask */}
-          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-[#050505] via-[#050505]/80 to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute left-0 top-0 bottom-0 w-8 sm:w-20 bg-gradient-to-r from-[#050505] via-[#050505]/80 to-transparent z-10 pointer-events-none"></div>
 
           {/* Right gradient mask */}
-          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-[#050505] via-[#050505]/80 to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-8 sm:w-20 bg-gradient-to-l from-[#050505] via-[#050505]/80 to-transparent z-10 pointer-events-none"></div>
 
-          {/* Left Navigation Icon */}
-          <div className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 opacity-0 group-hover:opacity-100 transition-all duration-300">
+          {/* Left Navigation Icon - Hidden on mobile, shown on larger screens */}
+          <div className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 z-20 opacity-0 group-hover:opacity-100 transition-all duration-300 hidden sm:block">
             <div
               onClick={handleScrollLeft}
-              className="bg-black/60 backdrop-blur-sm border border-neutral-700 rounded-full p-3 hover:bg-[#FF4533]/20 hover:border-[#FF4533]/50 transition-all duration-300 cursor-pointer hover:scale-110 active:scale-95"
+              className="bg-black/60 backdrop-blur-sm border border-neutral-700 rounded-full p-2 sm:p-3 hover:bg-[#FF4533]/20 hover:border-[#FF4533]/50 transition-all duration-300 cursor-pointer hover:scale-110 active:scale-95"
             >
-              <ChevronLeft className="w-5 h-5 text-white" />
+              <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
             </div>
           </div>
 
-          {/* Right Navigation Icon */}
-          <div className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 opacity-0 group-hover:opacity-100 transition-all duration-300">
+          {/* Right Navigation Icon - Hidden on mobile, shown on larger screens */}
+          <div className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 z-20 opacity-0 group-hover:opacity-100 transition-all duration-300 hidden sm:block">
             <div
               onClick={handleScrollRight}
-              className="bg-black/60 backdrop-blur-sm border border-neutral-700 rounded-full p-3 hover:bg-[#FF4533]/20 hover:border-[#FF4533]/50 transition-all duration-300 cursor-pointer hover:scale-110 active:scale-95"
+              className="bg-black/60 backdrop-blur-sm border border-neutral-700 rounded-full p-2 sm:p-3 hover:bg-[#FF4533]/20 hover:border-[#FF4533]/50 transition-all duration-300 cursor-pointer hover:scale-110 active:scale-95"
             >
-              <ChevronRight className="w-5 h-5 text-white" />
+              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
             </div>
           </div>
 
@@ -349,35 +359,70 @@ export default function FiverrReviewCarousel() {
             </div>
           </div>
 
-          {/* Hover indicator */}
-          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <div className="bg-black/50 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full">
-              Hover to pause • Use arrows to navigate
+          {/* Mobile navigation indicators */}
+          <div className="flex justify-center mt-6 gap-4 sm:hidden">
+            <button
+              onClick={handleScrollLeft}
+              className="bg-black/60 backdrop-blur-sm border border-neutral-700 rounded-full p-3 hover:bg-[#FF4533]/20 hover:border-[#FF4533]/50 transition-all duration-300 active:scale-95"
+            >
+              <ChevronLeft className="w-4 h-4 text-white" />
+            </button>
+            <button
+              onClick={handleScrollRight}
+              className="bg-black/60 backdrop-blur-sm border border-neutral-700 rounded-full p-3 hover:bg-[#FF4533]/20 hover:border-[#FF4533]/50 transition-all duration-300 active:scale-95"
+            >
+              <ChevronRight className="w-4 h-4 text-white" />
+            </button>
+          </div>
+        </div>
+
+        {/* Stats */}
+        <div className="mt-8 sm:mt-12 text-center">
+          <div className="inline-flex items-center gap-4 sm:gap-6 px-4 sm:px-6 py-3 sm:py-4 bg-[#1a1a1a] border border-[#2a2a2a] rounded-full">
+            <div className="text-center">
+              <div className="text-lg sm:text-xl font-bold text-[#FF4533]">
+                4.9
+              </div>
+              <div className="text-xs text-gray-400">Average Rating</div>
+            </div>
+            <div className="w-px h-8 bg-[#2a2a2a]"></div>
+            <div className="text-center">
+              <div className="text-lg sm:text-xl font-bold text-[#FF4533]">
+                50+
+              </div>
+              <div className="text-xs text-gray-400">Happy Clients</div>
+            </div>
+            <div className="w-px h-8 bg-[#2a2a2a]"></div>
+            <div className="text-center">
+              <div className="text-lg sm:text-xl font-bold text-[#FF4533]">
+                100%
+              </div>
+              <div className="text-xs text-gray-400">On-Time Delivery</div>
             </div>
           </div>
         </div>
 
         {/* Call to action */}
-        <div className="text-center mt-16">
-          <div className="max-w-2xl mx-auto">
-            <p className="text-gray-400 mb-2 text-lg">
+        <div className="text-center mt-12 sm:mt-16">
+          <div className="max-w-2xl mx-auto px-4">
+            <p className="text-gray-400 mb-2 text-base sm:text-lg">
               Ready to join these satisfied clients?
             </p>
-            <p className="text-gray-500 mb-8 text-sm">
+            <p className="text-gray-500 mb-6 sm:mb-8 text-sm">
               Start your project today and experience top-quality freelance
               services
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
               <a
                 href="https://www.fiverr.com/maleeshahe?public_mode=true"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-[#FF4533] hover:bg-[#E63E2E] text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-[#FF4533]/25"
+                className="inline-flex items-center gap-2 bg-[#FF4533] hover:bg-[#E63E2E] text-white font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-[#FF4533]/25 text-sm sm:text-base"
               >
-                Hire Me on Fiverr
+                <span>Hire Me on Fiverr</span>
                 <span className="text-sm opacity-75">→</span>
               </a>
-              <div className="flex items-center gap-2 text-sm text-gray-400">
+              <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-400">
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                 <span>Available for new projects</span>
               </div>
@@ -398,7 +443,7 @@ export default function FiverrReviewCarousel() {
         }
 
         .animate-scroll {
-          animation: scroll 15s linear infinite;
+          animation: scroll 20s linear infinite;
         }
 
         .group:hover .animation-pause {
@@ -413,47 +458,16 @@ export default function FiverrReviewCarousel() {
         }
 
         /* Responsive animations */
-        @media (max-width: 1024px) {
-          .animate-scroll {
-            animation-duration: 12s;
-          }
-        }
-
         @media (max-width: 768px) {
           .animate-scroll {
-            animation-duration: 10s;
+            animation: scroll 25s linear infinite;
           }
         }
 
         @media (max-width: 480px) {
           .animate-scroll {
-            animation-duration: 8s;
+            animation: scroll 30s linear infinite;
           }
-        }
-
-        /* Smooth scroll behavior */
-        .animate-scroll {
-          will-change: transform;
-        }
-
-        /* Enhanced hover effects */
-        .group:hover .animate-scroll {
-          animation-play-state: paused;
-        }
-
-        /* Hide scrollbar */
-        .scrollbar-hide {
-          scrollbar-width: none;
-          -ms-overflow-style: none;
-        }
-
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-
-        /* Smooth scroll for manual navigation */
-        .overflow-x-auto {
-          scroll-behavior: smooth;
         }
       `}</style>
     </section>
