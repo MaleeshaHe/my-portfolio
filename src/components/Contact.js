@@ -222,6 +222,27 @@ export default function Contact() {
                 </div>
               </div>
             </div>
+
+            {/* Freelance Availability */}
+            <div className="mt-8 p-6 bg-gradient-to-r from-[#FF4533]/10 to-[#FF4533]/5 border border-[#FF4533]/20 rounded-lg">
+              <div className="text-center">
+                <h4 className="text-white font-semibold mb-2">
+                  Freelance Availability
+                </h4>
+                <p className="text-gray-300 text-sm mb-4">
+                  Available for freelance projects and custom development work
+                </p>
+                <a
+                  href="https://www.fiverr.com/maleeshahe?public_mode=true"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#FF4533] hover:bg-[#E63E2E] text-white text-sm font-semibold rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-[#FF4533]/25"
+                >
+                  Hire Me on Fiverr
+                  <ExternalLink className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>

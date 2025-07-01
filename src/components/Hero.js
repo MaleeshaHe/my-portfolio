@@ -57,6 +57,19 @@ export default function Hero() {
           </a>
         </div>
 
+        {/* Fiverr CTA */}
+        <div className="mb-16">
+          <a
+            href="https://www.fiverr.com/maleeshahe?public_mode=true"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-2 px-8 py-4 bg-[#FF4533] hover:bg-[#E63E2E] text-white text-sm font-semibold rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-[#FF4533]/25"
+          >
+            Hire Me on Fiverr
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+          </a>
+        </div>
+
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
           <div className="flex flex-col items-center gap-2">
