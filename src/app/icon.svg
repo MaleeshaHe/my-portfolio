@@ -1,0 +1,14 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="32" height="32" rx="8" fill="#050505"/>
+  <rect x="1" y="1" width="30" height="30" rx="7" stroke="#FF4533" stroke-width="0.5" opacity="0.3"/>
+  
+  <!-- Letter M -->
+  <path d="M6 24V8h3.2l3.8 10.4L16.8 8H20v16h-2.4V12.8L14.4 24h-1.6L9.6 12.8V24H6z" fill="#FF4533"/>
+  
+  <!-- Dot accent -->
+  <circle cx="24" cy="20" r="2" fill="#FF4533"/>
+  
+  <!-- Code brackets -->
+  <path d="M4 14L6 12v2l-2 2z" fill="#666" opacity="0.6"/>
+  <path d="M28 14L26 16v-2l2-2z" fill="#666" opacity="0.6"/>
+</svg>
