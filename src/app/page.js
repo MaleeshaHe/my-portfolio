@@ -4,7 +4,7 @@ import SkillsSection from "@/components/SkillsSection";
 import WorkExperience from "@/components/WorkExperience";
 import EducationSection from "@/components/EducationSection";
 import Projects from "@/components/Projects";
-import FiverrReviewsSection from "@/components/FiverrReviewsSection";
+import FiverrReviewCarousel from "@/components/FiverrReviewCarousel";
 import AboutSection from "@/components/AboutSection";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -18,7 +18,7 @@ export default function Home() {
       <WorkExperience />
       <EducationSection />
       <Projects />
-      <FiverrReviewsSection />
+      <FiverrReviewCarousel />
       <AboutSection />
       <Contact />
       <Footer />

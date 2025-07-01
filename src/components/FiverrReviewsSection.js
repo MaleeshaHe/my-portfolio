@@ -164,6 +164,7 @@ const countryFlags = {
   France: "fr",
   "Saudi Arabia": "sa",
   Nepal: "np",
+  Germany: "de",
 };
 
 // Star rating component
@@ -198,39 +199,55 @@ function StarRating({ rating }) {
 }
 
 // Individual review card component
-function ReviewCard({ review }) {
+function ReviewCard({ review, index }) {
   return (
-    <div className="bg-neutral-900 text-white rounded-lg p-6 shadow-md hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-[#FF4533]/10 border border-neutral-800 hover:border-neutral-700">
-      {/* Header with username and country */}
-      <div className="flex items-center justify-between mb-4">
-        <div>
-          <h4 className="font-semibold text-white text-lg">
-            {review.username}
-          </h4>
-          <div className="flex items-center gap-2 mt-1">
-            {countryFlags[review.country] ? (
-              <img
-                src={`https://flagcdn.com/24x18/${
-                  countryFlags[review.country]
-                }.png`}
-                alt={`${review.country} flag`}
-                className="w-6 h-4 object-cover rounded-sm border border-gray-600"
-              />
-            ) : (
-              <span className="text-xl">🌍</span>
-            )}
+    <div className={`bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 text-white rounded-xl p-6 shadow-lg hover:scale-105 transition-all duration-300 hover:shadow-xl hover:shadow-[#FF4533]/20 border border-neutral-700 hover:border-[#FF4533]/30 relative overflow-hidden ${index % 2 === 0 ? 'animate-fade-in-up' : 'animate-fade-in-down'}`}>
+      {/* Subtle background pattern */}
+      <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/[0.02] to-transparent pointer-events-none"></div>
+      
+      {/* Content */}
+      <div className="relative z-10">
+        {/* Header with username and country */}
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-gradient-to-br from-[#FF4533] to-[#E63E2E] rounded-full flex items-center justify-center text-white font-bold text-sm">
+              {review.username.charAt(0).toUpperCase()}
+            </div>
+            <div>
+              <h4 className="font-semibold text-white text-base">
+                {review.username}
+              </h4>
+              <div className="flex items-center gap-2 mt-1">
+                {countryFlags[review.country] ? (
+                  <img
+                    src={`https://flagcdn.com/24x18/${
+                      countryFlags[review.country]
+                    }.png`}
+                    alt={`${review.country} flag`}
+                    className="w-5 h-4 object-cover rounded-sm border border-gray-500 shadow-sm"
+                  />
+                ) : (
+                  <span className="text-lg">🌍</span>
+                )}
+                <span className="text-xs text-gray-400">{review.country}</span>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Star rating */}
-      <div className="mb-4">
-        <StarRating rating={review.rating} />
-      </div>
+        {/* Star rating */}
+        <div className="mb-4">
+          <StarRating rating={review.rating} />
+        </div>
 
-      {/* Review text */}
-      <div className="text-gray-300 leading-relaxed">
-        <p className="italic">"{review.review}"</p>
+        {/* Review text */}
+        <div className="text-gray-300 leading-relaxed">
+          <p className="italic text-sm relative">
+            <span className="text-[#FF4533] text-lg absolute -left-1 -top-1">"</span>
+            <span className="ml-2">{review.review}</span>
+            <span className="text-[#FF4533] text-lg">"</span>
+          </p>
+        </div>
       </div>
     </div>
   );
@@ -283,9 +300,9 @@ export default function FiverrReviewsSection() {
         </div>
 
         {/* Reviews Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {fiverrReviews.map((review, index) => (
-            <ReviewCard key={index} review={review} />
+            <ReviewCard key={index} review={review} index={index} />
           ))}
         </div>
 
@@ -302,6 +319,39 @@ export default function FiverrReviewsSection() {
           </a>
         </div>
       </div>
+
+      {/* Custom CSS for animations */}
+      <style jsx>{`
+        @keyframes fade-in-up {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes fade-in-down {
+          from {
+            opacity: 0;
+            transform: translateY(-30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .animate-fade-in-up {
+          animation: fade-in-up 0.8s ease-out forwards;
+        }
+
+        .animate-fade-in-down {
+          animation: fade-in-down 0.8s ease-out forwards;
+        }
+      `}</style>
     </section>
   );
 }
