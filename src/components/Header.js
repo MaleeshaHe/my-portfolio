@@ -41,7 +41,7 @@ const Header = () => {
                 className="text-white/80 hover:text-white text-sm font-medium transition-all duration-200 hover:scale-105 relative group"
               >
                 {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-200 group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#FF4533] transition-all duration-200 group-hover:w-full"></span>
               </a>
             ))}
           </div>
@@ -49,10 +49,10 @@ const Header = () => {
           {/* Right Side - Contact Info & CTA */}
           <div className="hidden lg:flex items-center space-x-4">
             {/* Online Status Badge */}
-            <div className="flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-3 py-1.5">
-              <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
-              <Phone className="w-3 h-3 text-emerald-400" />
-              <span className="text-emerald-400 text-xs font-medium">Online</span>
+            <div className="flex items-center gap-2 bg-[#FF4533]/10 border border-[#FF4533]/20 rounded-full px-3 py-1.5">
+              <div className="w-2 h-2 bg-[#FF4533] rounded-full animate-pulse"></div>
+              <Phone className="w-3 h-3 text-[#FF4533]" />
+              <span className="text-[#FF4533] text-xs font-medium">Online</span>
             </div>
 
             {/* Phone Number */}
@@ -64,7 +64,7 @@ const Header = () => {
             </a>
 
             {/* Book a Call Button */}
-            <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2.5 rounded-lg transition-all duration-200 hover:scale-105 hover:shadow-lg hover:shadow-blue-600/25 active:scale-95">
+            <button className="bg-[#FF4533] hover:bg-[#E63E2E] text-white font-semibold px-6 py-2.5 rounded-lg transition-all duration-200 hover:scale-105 hover:shadow-lg hover:shadow-[#FF4533]/25 active:scale-95">
               Book a Call
             </button>
           </div>
@@ -105,9 +105,9 @@ const Header = () => {
               <div className="pt-3 border-t border-white/10 space-y-3">
                 {/* Online Status */}
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
-                  <Phone className="w-4 h-4 text-emerald-400" />
-                  <span className="text-emerald-400 text-sm font-medium">
+                  <div className="w-2 h-2 bg-[#FF4533] rounded-full animate-pulse"></div>
+                  <Phone className="w-4 h-4 text-[#FF4533]" />
+                  <span className="text-[#FF4533] text-sm font-medium">
                     Online
                   </span>
                 </div>
@@ -121,7 +121,7 @@ const Header = () => {
                 </a>
 
                 {/* Mobile CTA Button */}
-                <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:shadow-lg active:scale-95">
+                <button className="w-full bg-[#FF4533] hover:bg-[#E63E2E] text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:shadow-lg active:scale-95">
                   Book a Call
                 </button>
               </div>
