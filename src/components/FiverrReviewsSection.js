@@ -201,10 +201,14 @@ function StarRating({ rating }) {
 // Individual review card component
 function ReviewCard({ review, index }) {
   return (
-    <div className={`bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 text-white rounded-xl p-6 shadow-lg hover:scale-105 transition-all duration-300 hover:shadow-xl hover:shadow-[#FF4533]/20 border border-neutral-700 hover:border-[#FF4533]/30 relative overflow-hidden ${index % 2 === 0 ? 'animate-fade-in-up' : 'animate-fade-in-down'}`}>
+    <div
+      className={`bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 text-white rounded-xl p-6 shadow-lg hover:scale-105 transition-all duration-300 hover:shadow-xl hover:shadow-[#FF4533]/20 border border-neutral-700 hover:border-[#FF4533]/30 relative overflow-hidden ${
+        index % 2 === 0 ? "animate-fade-in-up" : "animate-fade-in-down"
+      }`}
+    >
       {/* Subtle background pattern */}
       <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/[0.02] to-transparent pointer-events-none"></div>
-      
+
       {/* Content */}
       <div className="relative z-10">
         {/* Header with username and country */}
@@ -243,9 +247,11 @@ function ReviewCard({ review, index }) {
         {/* Review text */}
         <div className="text-gray-300 leading-relaxed">
           <p className="italic text-sm relative">
-            <span className="text-[#FF4533] text-lg absolute -left-1 -top-1">"</span>
+            <span className="text-[#FF4533] text-lg absolute -left-1 -top-1">
+              &quot;
+            </span>
             <span className="ml-2">{review.review}</span>
-            <span className="text-[#FF4533] text-lg">"</span>
+            <span className="text-[#FF4533] text-lg">&quot;</span>
           </p>
         </div>
       </div>
@@ -272,8 +278,8 @@ export default function FiverrReviewsSection() {
             What Fiverr Clients Say
           </h2>
           <p className="text-gray-400 max-w-3xl mx-auto leading-relaxed text-lg mb-8">
-            Real feedback from satisfied clients who've experienced my freelance
-            services on Fiverr.
+            Real feedback from satisfied clients who&apos;ve experienced my
+            freelance services on Fiverr.
           </p>
 
           {/* Overall stats */}

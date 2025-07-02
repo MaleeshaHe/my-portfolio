@@ -77,12 +77,12 @@ export default function Contact() {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-light text-white mb-6">
-            Let's Work Together
+            Let&apos;s Work Together
           </h2>
           <p className="text-gray-400 max-w-3xl mx-auto leading-relaxed text-lg">
-            I'm currently seeking internship and entry-level opportunities in
-            software development. Let's connect and discuss how I can contribute
-            to your team.
+            I&apos;m currently seeking internship and entry-level opportunities
+            in software development. Let&apos;s connect and discuss how I can
+            contribute to your team.
           </p>
         </div>
 
@@ -176,9 +176,9 @@ export default function Contact() {
               Get in touch
             </h3>
             <p className="text-gray-400 leading-relaxed mb-8">
-              I'm always excited to discuss new opportunities and connect with
-              fellow developers, potential employers, and anyone interested in
-              collaborating on exciting projects.
+              I&apos;m always excited to discuss new opportunities and connect
+              with fellow developers, potential employers, and anyone interested
+              in collaborating on exciting projects.
             </p>
 
             {/* Contact Links */}

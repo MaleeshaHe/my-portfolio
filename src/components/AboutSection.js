@@ -31,7 +31,7 @@ export default function AboutSection() {
             {/* Introduction */}
             <div className="bg-gradient-to-br from-neutral-900 to-neutral-800 text-white rounded-xl p-6 sm:p-8 shadow-lg border border-neutral-700 hover:border-neutral-600 transition-all duration-300">
               <h3 className="text-xl sm:text-2xl font-light text-white leading-relaxed mb-4 sm:mb-6">
-                Hi, I'm{" "}
+                Hi, I&apos;m{" "}
                 <span className="font-semibold text-[#FF4533]">
                   Maleesha Herath
                 </span>{" "}
@@ -65,7 +65,7 @@ export default function AboutSection() {
             <div className="space-y-4 sm:space-y-6">
               <div className="bg-gradient-to-br from-neutral-900 to-neutral-800 text-white rounded-xl p-6 sm:p-8 shadow-lg border border-neutral-700 hover:border-neutral-600 transition-all duration-300">
                 <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
-                  I'm currently an undergraduate at the{" "}
+                  I&apos;m currently an undergraduate at the{" "}
                   <span className="font-medium text-white">
                     University of Ruhuna
                   </span>
@@ -78,14 +78,14 @@ export default function AboutSection() {
 
               <div className="bg-gradient-to-br from-neutral-900 to-neutral-800 text-white rounded-xl p-6 sm:p-8 shadow-lg border border-neutral-700 hover:border-neutral-600 transition-all duration-300">
                 <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
-                  From academic projects to freelance work, I've delivered{" "}
+                  From academic projects to freelance work, I&apos;ve delivered{" "}
                   <span className="font-medium text-white">
                     fullstack solutions
                   </span>{" "}
                   across mobile apps, e-commerce systems, inventory management
-                  tools, and investment analysis platforms. I'm also comfortable
-                  with databases (MySQL, PostgreSQL, MongoDB) and cloud
-                  platforms (GCP, AWS, Azure).
+                  tools, and investment analysis platforms. I&apos;m also
+                  comfortable with databases (MySQL, PostgreSQL, MongoDB) and
+                  cloud platforms (GCP, AWS, Azure).
                 </p>
               </div>
 
@@ -96,8 +96,9 @@ export default function AboutSection() {
                     solving problems, learning continuously, and building
                     meaningful software
                   </span>
-                  . Whether it's through elegant UI design or robust backend
-                  logic, I strive to deliver work that makes a difference.
+                  . Whether it&apos;s through elegant UI design or robust
+                  backend logic, I strive to deliver work that makes a
+                  difference.
                 </p>
               </div>
             </div>
@@ -165,7 +166,7 @@ export default function AboutSection() {
                 href="#contact"
                 className="w-full inline-flex items-center justify-center gap-2 bg-[#FF4533] hover:bg-[#E63E2E] text-white font-semibold px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-[#FF4533]/25 text-sm sm:text-base"
               >
-                Let's Work Together
+                Let&apos;s Work Together
                 <Zap className="w-3 h-3 sm:w-4 sm:h-4" />
               </a>
             </div>

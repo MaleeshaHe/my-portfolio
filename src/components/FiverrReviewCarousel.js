@@ -240,11 +240,11 @@ function CarouselReviewCard({ review }) {
       <div className="text-gray-300 leading-relaxed">
         <p className="text-xs sm:text-sm italic relative line-clamp-4">
           <span className="text-[#FF4533] text-base sm:text-lg absolute -left-1 sm:-left-2 -top-0.5 sm:-top-1 font-serif">
-            "
+            &quot;
           </span>
           <span className="ml-2 sm:ml-3">{review.review}</span>
           <span className="text-[#FF4533] text-base sm:text-lg font-serif">
-            "
+            &quot;
           </span>
         </p>
       </div>
@@ -309,8 +309,8 @@ export default function FiverrReviewCarousel() {
             What Fiverr Clients Say
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto leading-relaxed text-sm sm:text-base px-4">
-            Real feedback from satisfied clients who've experienced my freelance
-            services.
+            Real feedback from satisfied clients who&apos;ve experienced my
+            freelance services.
           </p>
         </div>
 

@@ -44,7 +44,7 @@ export default function About() {
 
             <div className="space-y-6 text-gray-400 leading-relaxed">
               <p>
-                I'm an ICT undergraduate from the University of Ruhuna with
+                I&apos;m an ICT undergraduate from the University of Ruhuna with
                 hands-on experience in JavaScript, Java, Python, C#, Dart, and
                 frameworks like React, Spring Boot, Flutter, and .NET. I
                 specialize in scalable web systems, mobile apps, and database
@@ -52,7 +52,7 @@ export default function About() {
               </p>
 
               <p>
-                I'm passionate about crafting software that solves real
+                I&apos;m passionate about crafting software that solves real
                 problems. My experience spans from building investment portfolio
                 generators with machine learning to developing complete hotel
                 booking systems and mobile applications for educational

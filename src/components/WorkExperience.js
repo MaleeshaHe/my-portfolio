@@ -108,7 +108,8 @@ export default function WorkExperience() {
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto leading-relaxed text-sm sm:text-base lg:text-lg px-4">
             A timeline of my professional experience, showcasing the roles where
-            I've contributed to impactful projects and grown as a developer.
+            I&apos;ve contributed to impactful projects and grown as a
+            developer.
           </p>
         </div>
 

@@ -32,7 +32,7 @@ export default function Hero() {
 
         {/* Enhanced Main Heading with better typography */}
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extralight text-white mb-6 sm:mb-8 leading-[0.9] sm:leading-[0.85] tracking-tight px-2 sm:px-0">
-          <span className="block mb-1 sm:mb-2">Hi, I'm</span>
+          <span className="block mb-1 sm:mb-2">Hi, I&apos;m</span>
           <span className="block bg-gradient-to-r from-white via-[#FF4533] to-gray-300 bg-clip-text text-transparent font-semibold relative">
             Maleesha Herath
             {/* Subtle glow effect */}
