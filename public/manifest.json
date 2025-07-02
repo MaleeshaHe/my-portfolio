@@ -2,20 +2,20 @@
   "name": "Maleesha Herath - Fullstack Software Engineer",
   "short_name": "Maleesha Herath",
   "description": "Passionate fullstack software engineer intern skilled in building scalable web and mobile applications",
-  "start_url": "/",
+  "start_url": "/my-portfolio/",
   "display": "standalone",
   "background_color": "#050505",
   "theme_color": "#FF4533",
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/icon.svg",
+      "src": "/my-portfolio/icon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any maskable"
     },
     {
-      "src": "/apple-icon.svg",
+      "src": "/my-portfolio/apple-icon.svg",
       "sizes": "180x180",
       "type": "image/svg+xml"
     }

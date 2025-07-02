@@ -61,19 +61,17 @@ export const metadata = {
     creator: "@maleeshaherath",
   },
   icons: {
-    icon: [
-      { url: "/icon.svg", type: "image/svg+xml" },
-      { url: "/favicon.ico", sizes: "any" },
-    ],
-    apple: [{ url: "/apple-icon.svg", type: "image/svg+xml" }],
-    shortcut: "/favicon.ico",
+    icon: "/my-portfolio/icon.svg",
+    shortcut: "/my-portfolio/favicon.ico",
+    apple: "/my-portfolio/apple-icon.svg",
   },
-  manifest: "/manifest.json",
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-  },
+  manifest: "/my-portfolio/manifest.json",
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#FF4533" },
     { media: "(prefers-color-scheme: dark)", color: "#050505" },
