@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import {
   Mail,
   Phone,
@@ -9,6 +10,8 @@ import {
   Linkedin,
   ExternalLink,
   Send,
+  CheckCircle,
+  AlertCircle,
 } from "lucide-react";
 
 const contactInfo = [
@@ -51,6 +54,7 @@ export default function Contact() {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', or null
 
   const handleChange = (e) => {
     setFormData({
@@ -62,13 +66,40 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus(null);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      // EmailJS configuration
+      const serviceId =
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "YOUR_SERVICE_ID";
+      const templateId =
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "YOUR_TEMPLATE_ID";
+      const publicKey =
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "YOUR_PUBLIC_KEY";
 
-    console.log("Form submitted:", formData);
-    setFormData({ name: "", email: "", message: "" });
-    setIsSubmitting(false);
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        to_email: "maleesha77he@gmail.com", // Your email
+      };
+
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+
+      setSubmitStatus("success");
+      setFormData({ name: "", email: "", message: "" });
+
+      // Clear success message after 5 seconds
+      setTimeout(() => setSubmitStatus(null), 5000);
+    } catch (error) {
+      console.error("Email send error:", error);
+      setSubmitStatus("error");
+
+      // Clear error message after 5 seconds
+      setTimeout(() => setSubmitStatus(null), 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -96,6 +127,25 @@ export default function Contact() {
               Send me a message
             </h3>
             <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+              {/* Status Messages */}
+              {submitStatus === "success" && (
+                <div className="flex items-center gap-3 p-4 bg-emerald-500/10 border border-emerald-500/20 rounded-lg text-emerald-400">
+                  <CheckCircle className="w-5 h-5 flex-shrink-0" />
+                  <span className="text-sm">
+                    Message sent successfully! I'll get back to you soon.
+                  </span>
+                </div>
+              )}
+
+              {submitStatus === "error" && (
+                <div className="flex items-center gap-3 p-4 bg-red-500/10 border border-red-500/20 rounded-lg text-red-400">
+                  <AlertCircle className="w-5 h-5 flex-shrink-0" />
+                  <span className="text-sm">
+                    Failed to send message. Please try again or contact me
+                    directly.
+                  </span>
+                </div>
+              )}
               <div>
                 <label
                   htmlFor="name"
