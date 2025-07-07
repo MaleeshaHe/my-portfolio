@@ -61,11 +61,11 @@ export const metadata = {
     creator: "@maleeshaherath",
   },
   icons: {
-    icon: "/my-portfolio/icon.svg",
-    shortcut: "/my-portfolio/favicon.ico",
-    apple: "/my-portfolio/apple-icon.svg",
+    icon: "/icon.svg",
+    shortcut: "/favicon.ico",
+    apple: "/apple-icon.svg",
   },
-  manifest: "/my-portfolio/manifest.json",
+  manifest: "/manifest.json",
 };
 
 export const viewport = {
